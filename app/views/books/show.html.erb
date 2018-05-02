@@ -13,6 +13,17 @@
 <p>
   <b>刊行日：<%= @book.publish_date %></b>
 </p>
+
+<h3>レビュー一覧</h3>
+<ul>
+
+<h3>投稿</h3>
+<%= render partial: 'new_review', locals: { review: @book.reviews.new } %>
+
+<% @book.reviews.each do |review| %>
+  <li><%= review.body %> - <%= review.created_at %></li>
+<% end %>
+</ul>
 <p>
   <%= link_to "編集", edit_book_path(@book) %>
 </p>
